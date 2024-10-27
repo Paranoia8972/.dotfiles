@@ -1,0 +1,151 @@
+* {
+  border: none;
+  border-radius: 5;
+  font-family: "Fira Code Nerd Font";
+  font-size: 15px;
+  min-height: 0;
+  color: #89b4fa;
+}
+
+@keyframes blink-update {
+  to {
+    background-color: #c53b53;
+  }
+}
+
+#custom-archicon {
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 0px;
+  background: #282a36;
+  transition: none;
+  padding: 2px;
+  color: #89b4fa;
+}
+
+window#waybar {
+  background: transparent;
+  /*color: #7AA2F7;*/
+  /*color: #EA7695;*/
+  color: #c099ff;
+}
+
+#window {
+  color: #b4f9f8;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 0px;
+  background: #282a36;
+  transition: none;
+  padding: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#workspaces {
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 0px;
+  background: #282a36;
+  transition: none;
+  padding: 2px;
+  color: #ff757f;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  background: transparent;
+  color: #ff757f;
+  border-top: 2px solid transparent;
+}
+
+#workspaces button.focused {
+  color: #ff757f;
+  border-top: 2px solid #c9545d;
+}
+
+#mode {
+  background: #64727d;
+  border-bottom: 3px solid white;
+  padding: 0 3px;
+  margin: 0 2px;
+}
+
+#pulseaudio {
+  color: #ff9e64;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 0;
+  background: #282a36;
+  transition: none;
+  padding: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#network {
+  color: #41a6b5;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 0;
+  background: #282a36;
+  transition: none;
+  padding: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#tray {
+  margin-top: 5px;
+  background: #282a36;
+  padding: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#clock {
+  font-weight: bold;
+  margin-top: 5px;
+  background: #282a36;
+  padding: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+}
+
+#network.disconnected {
+  background: #f53c3c;
+}
+
+#custom-waybar-media.paused {
+  color: grey;
+}
+
+#bluetooth {
+  color: #f1fa8c;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 0;
+  background: #282a36;
+  transition: none;
+  padding: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#battery {
+  color: white;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5;
+  margin-bottom: 0;
+  background: #282a36;
+  transition: none;
+  padding: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#battery {
+  color: #50fa7b;
+}
