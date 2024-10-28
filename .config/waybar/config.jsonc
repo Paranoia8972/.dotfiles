@@ -7,44 +7,57 @@
   "modules-left": [
     "custom/archicon",
     "hyprland/workspaces",
-    "custom/waybar-media"
+    "custom/waybar-media",
+    "custom/media"
   ],
-  "modules-center": ["clock", "custom/media"],
-  "modules-right": ["tray", "pulseaudio", "network", "bluetooth", "battery"],
-  "tray": {
-    "spacing": 10
+  "modules-center": ["clock"],
+  "modules-right": [
+    "tray",
+    "pulseaudio",
+    "backlight",
+    "network",
+    "bluetooth",
+    "battery",
+    "custom/dunst"
+  ],
+  "custom/archicon": {
+    "format": " 󰣇 ",
+    "tooltip": false
+  },
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "format": "{icon}",
+    "format-icons": {
+      "urgent": "",
+      "active": "",
+      "default": ""
+    }
   },
   "clock": {
     "format": "<span color=\"#89b4fa\">󰸗</span>  {:%a, %d %b %Y  %H:%M}",
     "tooltip": false
   },
-  "battery": {
-    "states": {
-      // "good": 95,
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{icon} {capacity}%",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
-    "format-charging": "{capacity}% 󰂄",
-    "format-icons": ["󰂎", "󰁼", "󰁾", "󰂀", "󰁹"]
-  },
-  "network": {
-    "format-wifi": "  {essid}",
-    "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-    "format-disconnected": "Disconnected ⚠"
+  "tray": {
+    "spacing": 10
   },
   "pulseaudio": {
-    //"scroll-step": 1,
-    "format": "{icon}  {volume}%",
-    "format-bluetooth": "{volume}% {icon}",
-    "format-muted": "",
+    "format": "<span color=\"#ff757f\">{icon}</span> {volume}%",
+    "format-bluetooth": "<span color=\"#ff757f\">{icon}</span> {volume}%",
+    "format-muted": "",
     "format-icons": {
       "headphones": "",
-      "default": ["", ""]
+      "default": ["", "", ""]
     },
     "on-click": "pavucontrol"
+  },
+  "network": {
+    "format-wifi": "<span color=\"#bc93e3\">{icon}</span> {essid}",
+    "format-ethernet": "<span color=\"#bc93e3\">󰌗</span> Connected",
+    "format-disconnected": "<span color=\"#ef6464\">󰤭</span> Disconnected",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "tooltip-format": "{ipaddr}/{cidr}\n{essid}\n󰛶 {bandwidthDownBytes}  󰛴 {bandwidthDownBytes}"
   },
   "custom/waybar-media": {
     "format": "{icon}",
@@ -61,59 +74,51 @@
     "on-scroll-down": "./scripts/media.py next",
     "escape": true
   },
-  "hyprland/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": true,
-    "warp-on-scroll": false,
+  "custom/media": {
     "format": "{icon}",
+    "tooltip": "{text}",
+    "return-type": "json",
     "format-icons": {
-      "urgent": "",
-      "active": "",
-      "default": ""
-    }
+      "Playing": " ",
+      "Paused": " "
+    },
+    "max-length": 70,
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{playerName}}: {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl previous",
+    "on-scroll-down": "playerctl next"
   },
-  "custom/archicon": {
-    "format": " 󰣇 ",
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "<span color=\"#e8e190\">{icon}</span> {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃝", "󰃠"],
     "tooltip": false
+  },
+  "bluetooth": {
+    "format": "<span color=\"#8caffa\"></span> {status}",
+    "format-connected": "<span color=\"#8caffa\"></span> Connected ({num_connections})",
+    "format-connected-battery": "<span color=\"#8caffa\"></span> {device_alias} {device_battery_percentage}%",
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+  },
+  "battery": {
+    "format": "{icon} {capacity}%",
+    "format-time": "{H}:{M}h",
+    "format-charging": "<span color=\"#9dedb8\">󰂄</span> {capacity}%",
+    "format-icons": [
+      "<span color=\"#ef6464\">󰂎</span>",
+      "<span color=\"#da805a\">󰁼</span>",
+      "<span color=\"#e6f174\">󰁾</span>",
+      "<span color=\"#c8ed9d\">󰂀</span>",
+      "<span color=\"#9dedb8\">󰁹</span>"
+    ],
+    "tooltip-format": "{timeTo}"
   },
   "custom/dunst": {
     "exec": "~/.config/waybar/scripts/dunst.sh",
     "on-click": "dunstctl set-paused toggle",
     "restart-interval": 1
-  },
-  "custom/spotify": {
-    "format": "{icon} {}",
-    "escape": true,
-    "return-type": "json",
-    "max-length": 40,
-    "interval": 30, // Remove this if your script is endless and write in loop
-    "on-click": "playerctl -p spotify play-pause",
-    "on-click-right": "killall spotify",
-    "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
-    "on-scroll-up": "playerctl -p spotify next",
-    "on-scroll-down": "playerctl -p spotify previous",
-    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
-    "exec-if": "pgrep spotify"
-  },
-  "custom/media": {
-    "format": "{icon}{}",
-    "return-type": "json",
-    "format-icons": {
-      "Playing": " ",
-      "Paused": " "
-    },
-    "max-length": 70,
-    "exec": "playerctl -a metadata --format '{\"text\": \"{{playerName}}: {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-    "on-click": "playerctl play-pause"
-  },
-  "bluetooth": {
-    "format": " {status}",
-    "format-connected": " Connected ({num_connections})",
-    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
-    // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
-    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
   }
 }
