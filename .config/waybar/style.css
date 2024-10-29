@@ -2,32 +2,30 @@
   border: none;
   border-radius: 5;
   font-family: "Jetbrains Mono Nerd Font";
-  font-size: 15px;
-  min-height: 22px;
+  font-size: 12px;
+  min-height: 18px;
   color: #89b4fa;
 }
 
 #custom-archicon {
+  font-size: 14px;
   margin-top: 7px;
-  margin-left: 10px;
+  margin-left: 7px;
   background: #282a36;
   transition: none;
-  padding: 2px;
+  padding-left: 1px;
   padding-right: 5px;
   color: #89b4fa;
 }
 
 window#waybar {
   background: transparent;
-  /* color: #7AA2F7; */
-  /* color: #EA7695; */
-  /* color: #c099ff; */
 }
 
 #window {
   color: #b4f9f8;
   margin-top: 7px;
-  margin-left: 10px;
+  margin-left: 7px;
   background: #282a36;
   transition: none;
   padding: 2px;
@@ -36,17 +34,20 @@ window#waybar {
 }
 
 #workspaces {
+  font-size: 14px;
   margin-top: 7px;
-  margin-left: 10px;
+  margin-left: 7px;
   background: #282a36;
   transition: none;
-  padding: 2px;
+  padding-top: 2px;
+  padding-bottom: 2px;
   color: #ff757f;
 }
 
 #workspaces button {
   background-color: transparent;
   color: #ffffff;
+  margin-right: -8px;
 }
 
 #workspaces button:last-child {
@@ -60,7 +61,7 @@ button:hover {
 #pulseaudio {
   color: white;
   margin-top: 7px;
-  margin-left: 10px;
+  margin-left: 7px;
   background: #282a36;
   transition: none;
   padding: 2px;
@@ -71,7 +72,7 @@ button:hover {
 #backlight {
   color: white;
   margin-top: 7px;
-  margin-left: 10px;
+  margin-left: 7px;
   background: #282a36;
   transition: none;
   padding: 2px;
@@ -82,7 +83,7 @@ button:hover {
 #network {
   color: white;
   margin-top: 7px;
-  margin-left: 10px;
+  margin-left: 7px;
   background: #282a36;
   transition: none;
   padding: 2px;
@@ -115,7 +116,7 @@ button:hover {
 #bluetooth {
   color: white;
   margin-top: 7px;
-  margin-left: 10px;
+  margin-left: 7px;
   background: #282a36;
   transition: none;
   padding: 2px;
@@ -126,8 +127,8 @@ button:hover {
 #battery {
   color: white;
   margin-top: 7px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 7px;
+  margin-right: 7px;
   background: #282a36;
   transition: none;
   padding: 2px;
@@ -137,7 +138,7 @@ button:hover {
 
 #custom-media {
   margin-top: 7px;
-  margin-left: 10px;
+  margin-left: 7px;
   transition: none;
   padding-left: 8px;
   background-color: #66cc99;

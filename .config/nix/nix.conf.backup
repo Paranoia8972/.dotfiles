@@ -1,0 +1,7 @@
+build-users-group = nixbld
+
+max-jobs = auto
+
+trusted-users = root paranoia
+
+experimental-features = nix-command flakes

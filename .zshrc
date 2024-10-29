@@ -1,4 +1,5 @@
 export EDITOR=nvim
+export TERM=linux
 
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -67,6 +68,7 @@ alias ls='ls --color'
 alias vim='nvim'
 alias c='clear'
 alias cat='bat'
+alias s='kitten ssh'
 
 # Shell integrations
 eval "$(fzf --zsh)"

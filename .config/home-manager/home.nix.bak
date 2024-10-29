@@ -1,0 +1,27 @@
+{ config, pkgs, ... }:
+
+{
+  # Set the username and home directory
+  home.username = "paranoia";
+  home.homeDirectory = "/home/paranoia";
+
+  # Nix package
+  nix.package = pkgs.nix;
+
+  # Experimental features for Nix
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
+  # Specify the system architecture
+  nixpkgs.system = "x86_64-linux";              # Adjust if on a different architecture
+
+  # State version for Home Manager
+  home.stateVersion = "23.05";                  # Update based on your nixpkgs version
+
+  # Example Home Manager settings (customize as needed)
+  home.packages = with pkgs; [];
+
+}
+

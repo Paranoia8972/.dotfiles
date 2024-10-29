@@ -167,19 +167,25 @@ class MediaWatcherStatusBuilder:
         self.watcher = watcher
 
     def _build_tooltip(self):
+        tooltip = []
         player = self.watcher.player
-        if player is None:
-            return "No active player"
+
         if player.status in ['playing', 'paused']:
-            return f"{player.title} - {player.artist}"
-        return "Stopped"
+            tooltip.append(player.status.title() + ':')
+        if player.title:
+            tooltip.append(player.title)
+        if player.album:
+            tooltip.append(player.album)
+        if player.artist:
+            tooltip.append(player.artist)
+        if player.name:
+            tooltip.append('(' + player.name + ')')
+
+        return '\n'.join(tooltip) if tooltip else None
 
     def _build_text(self, max_width, title_to_artist_ratio=2 / 3, separator=' - ', placeholder='…'):
         max_width = max_width - len(separator)
         player = self.watcher.player
-
-        if player is None:
-            return "No active player"
 
         if player.title and player.artist:
             title_width = math.floor(max_width * title_to_artist_ratio)
@@ -210,15 +216,12 @@ class MediaWatcherStatusBuilder:
     def _build_classes(self):
         classes = []
         player = self.watcher.player
-    
-        if player is None:
-            classes.append('stopped')
+
+        if player.status in ['playing', 'paused']:
+            classes.append(player.status)
         else:
-            if player.status in ['playing', 'paused']:
-                classes.append(player.status)
-            else:
-                classes.append('stopped')
-    
+            classes.append('stopped')
+
         return classes
 
     def build_status(self):
