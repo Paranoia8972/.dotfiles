@@ -45,7 +45,7 @@ bindkey '^[w' kill-region
 zle_highlight+=(paste:none)
 
 # History
-HISTSIZE=5000
+HISTSIZE=9000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 setopt appendhistory
@@ -69,6 +69,10 @@ alias vim='nvim'
 alias c='clear'
 alias cat='bat'
 alias s='kitten ssh'
+alias icat="kitten icat"
+alias history='cat ~/.zsh_history | fzf'
+alias hist='cat ~/.zsh_history | fzf'
+alias vm='nvim'
 
 # Shell integrations
 eval "$(fzf --zsh)"
@@ -80,6 +84,13 @@ eval "$(zoxide init --cmd cd zsh)"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export CGO_CFLAGS="-w -O2"
+
+# rust
+source $HOME/.cargo/env
+
+# devcontainers
+source $HOME/.config/Code/User/globalStorage/ms-vscode-remote.remote-containers/cli-bin
 
 # fastfetch
 pfetch
