@@ -7,3 +7,6 @@
 [user]
 	email = contact@encryptopia.dev
 	name = Paranoia8972
+	signingkey = contact@encryptopia.dev
+[commit]
+	gpgSign = true
