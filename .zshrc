@@ -70,9 +70,8 @@ alias c='clear'
 alias cat='bat'
 alias s='kitten ssh'
 alias icat="kitten icat"
-alias history='cat ~/.zsh_history | fzf'
 alias hist='cat ~/.zsh_history | fzf'
-alias vm='nvim'
+alias nvm='nvim'
 
 # Shell integrations
 eval "$(fzf --zsh)"
@@ -84,7 +83,7 @@ eval "$(zoxide init --cmd cd zsh)"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-export CGO_CFLAGS="-w -O2"
+export CGO_CFLAGS="-w -O2 -Wno-stringop-overread"
 
 # rust
 source $HOME/.cargo/env
