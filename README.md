@@ -2,6 +2,8 @@
 
 This repository contains my personal dotfiles and configurations, managed using GNU Stow.
 
+![Desktop](/assets/screenshot.png)
+
 ## 📦 Packages
 
 - [GNU Stow](https://www.gnu.org/software/stow/)

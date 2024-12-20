@@ -1,7 +1,5 @@
 # My Neovim Configuration
 
-![Desktop](/assets/screenshot.png)
-
 This repository contains a Neovim configuration that utilizes `lazy.nvim` as the plugin manager. The configuration includes various plugins for enhanced functionality, such as a dashboard for recent projects, a file manager, language servers for TypeScript, Go, Rust, and Tailwind CSS IntelliSense, as well as autocompletion and fuzzy searching capabilities.
 
 ## Project Structure
