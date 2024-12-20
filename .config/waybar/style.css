@@ -4,18 +4,18 @@
   font-family: "Jetbrains Mono Nerd Font";
   font-size: 12px;
   min-height: 18px;
-  color: #89b4fa;
+  color: #a6accd;
 }
 
 #custom-archicon {
   font-size: 14px;
   margin-top: 7px;
   margin-left: 7px;
-  background: #282a36;
+  background: #1b1e28;
   transition: none;
   padding-left: 1px;
   padding-right: 5px;
-  color: #89b4fa;
+  color: #5de4c7;
 }
 
 window#waybar {
@@ -23,10 +23,10 @@ window#waybar {
 }
 
 #window {
-  color: #b4f9f8;
+  color: #5de4c7;
   margin-top: 7px;
   margin-left: 7px;
-  background: #282a36;
+  background: #1b1e28;
   transition: none;
   padding: 2px;
   padding-left: 10px;
@@ -37,16 +37,16 @@ window#waybar {
   font-size: 14px;
   margin-top: 7px;
   margin-left: 7px;
-  background: #282a36;
+  background: #1b1e28;
   transition: none;
   padding-top: 2px;
   padding-bottom: 2px;
-  color: #ff757f;
+  color: #89ddff;
 }
 
 #workspaces button {
   background-color: transparent;
-  color: #ffffff;
+  color: #a6accd;
   margin-right: -8px;
 }
 
@@ -56,35 +56,18 @@ window#waybar {
 
 button:hover {
   background: inherit;
+  color: #5de4c7;
 }
 
-#pulseaudio {
-  color: white;
+#pulseaudio,
+#backlight,
+#network,
+#bluetooth,
+#battery {
+  color: #a6accd;
   margin-top: 7px;
   margin-left: 7px;
-  background: #282a36;
-  transition: none;
-  padding: 2px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-#backlight {
-  color: white;
-  margin-top: 7px;
-  margin-left: 7px;
-  background: #282a36;
-  transition: none;
-  padding: 2px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-#network {
-  color: white;
-  margin-top: 7px;
-  margin-left: 7px;
-  background: #282a36;
+  background: #1b1e28;
   transition: none;
   padding: 2px;
   padding-left: 10px;
@@ -93,47 +76,25 @@ button:hover {
 
 #tray {
   margin-top: 7px;
-  background: #282a36;
+  background: #1b1e28;
   padding: 2px;
   padding-left: 10px;
   padding-right: 10px;
+  color: #a6accd;
 }
 
 #clock {
   font-weight: bold;
   margin-top: 7px;
-  background: #282a36;
+  background: #1b1e28;
   padding: 2px;
   padding-left: 10px;
   padding-right: 10px;
-  color: white;
+  color: #5de4c7; /* Keeping green for clock */
 }
 
 #custom-waybar-media.paused {
-  color: grey;
-}
-
-#bluetooth {
-  color: white;
-  margin-top: 7px;
-  margin-left: 7px;
-  background: #282a36;
-  transition: none;
-  padding: 2px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-#battery {
-  color: white;
-  margin-top: 7px;
-  margin-left: 7px;
-  margin-right: 7px;
-  background: #282a36;
-  transition: none;
-  padding: 2px;
-  padding-left: 10px;
-  padding-right: 10px;
+  color: #676e95; /* Dimmed color for paused state */
 }
 
 #custom-media {
@@ -141,14 +102,17 @@ button:hover {
   margin-left: 7px;
   transition: none;
   padding-left: 8px;
-  background-color: #66cc99;
-  color: #2a5c45;
+  background-color: #1b1e28;
+  color: #fffac2; /* Changed to yellow for better visibility */
   min-width: 50px;
 }
 
 #custom-media.custom-spotify {
-  background-color: #66cc99;
+  background-color: #1b1e28;
+  color: #add7ff; /* Changed to lighter blue */
 }
+
 #custom-media.custom-vlc {
-  background-color: #ffa000;
+  background-color: #1b1e28;
+  color: #89ddff; /* Kept original blue */
 }
