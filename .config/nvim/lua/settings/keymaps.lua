@@ -14,3 +14,5 @@ keymap('n', '<Leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true 
 keymap('n', '<Leader>p', ':Dashboard<CR>', { noremap = true, silent = true })
 
 keymap('i', 'jk', '<Esc>', { noremap = true, silent = true })
+
+keymap('n', '<Leader>j', ':split | terminal<CR>', { noremap = true, silent = true })
