@@ -11,6 +11,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.g.copilot_no_tab_map = true
+vim.api.nvim_set_keymap("i", "<C-f>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+
 require("plugins.lazy")
 require("settings.init")
 require("settings.keymaps")
@@ -20,3 +23,4 @@ require("plugins.lsp")
 require("plugins.autocompletion")
 require("plugins.fzf")
 require("plugins.theme")
+require("plugins.discord")

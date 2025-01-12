@@ -43,6 +43,12 @@ require('lazy').setup({
         end
     },
     {
+        'andweeb/presence.nvim',
+        config = function()
+            require('plugins.discord')
+        end
+    },
+    {
         'github/copilot.vim',
     },
     {
