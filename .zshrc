@@ -1,5 +1,6 @@
 export EDITOR=nvim
-export TERM=linux
+export TERM=xterm-kitty
+export TERMINAL=kitty
 
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -72,6 +73,7 @@ alias s='kitten ssh'
 alias icat="kitten icat"
 alias hist='cat ~/.zsh_history | fzf'
 alias nvm='nvim'
+alias npx='bunx'
 
 # Shell integrations
 eval "$(fzf --zsh)"
@@ -83,13 +85,23 @@ eval "$(zoxide init --cmd cd zsh)"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# go
+export PATH=$PATH:$(go env GOPATH)/bin
 export CGO_CFLAGS="-w -O2 -Wno-stringop-overread"
 
 # rust
 source $HOME/.cargo/env
+
+# encore
+export ENCORE_INSTALL="/home/paranoia/.encore"
+export PATH="$ENCORE_INSTALL/bin:$PATH"
 
 # devcontainers
 source $HOME/.config/Code/User/globalStorage/ms-vscode-remote.remote-containers/cli-bin
 
 # fastfetch
 pfetch
+
+export PATH="/home/paranoia/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="/home/paranoia/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
