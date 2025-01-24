@@ -75,6 +75,10 @@ alias hist='cat ~/.zsh_history | fzf'
 alias nvm='nvim'
 alias npx='bunx'
 
+mkcd() {
+    mkdir -p "$1" && cd "$1"
+}
+
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
@@ -105,3 +109,15 @@ pfetch
 
 export PATH="/home/paranoia/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/paranoia/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+eval $(thefuck --alias)
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+. "$HOME/.local/bin/env"
+
+# astral uv
+source $HOME/.local/bin/env
