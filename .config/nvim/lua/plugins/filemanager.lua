@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local nvim_tree = require('nvim-tree')
 
 local function on_attach(bufnr)

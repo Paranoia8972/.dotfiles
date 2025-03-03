@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local keymap = vim.api.nvim_set_keymap
 
 keymap('n', '<Leader>ff', ':FzfLua files<CR>', { noremap = true, silent = true })
