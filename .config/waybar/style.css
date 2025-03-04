@@ -1,21 +1,44 @@
+@define-color foreground #bfc4c6;
+@define-color background #00141D;
+@define-color cursor #bfc4c6;
+
+@define-color color0 #011f2d;
+@define-color color1 #269ACF;
+@define-color color2 #3A9FCC;
+@define-color color3 #29B5F5;
+@define-color color4 #4FC3F7;
+@define-color color5 #6FCDF8;
+@define-color color6 #89B3C7;
+@define-color color7 #bfc4c6;
+@define-color color8 #58666c;
+@define-color color9 #269ACF;
+@define-color color10 #3A9FCC;
+@define-color color11 #29B5F5;
+@define-color color12 #4FC3F7;
+@define-color color13 #6FCDF8;
+@define-color color14 #89B3C7;
+@define-color color15 #bfc4c6;
+
 * {
   border: none;
   border-radius: 5;
-  font-family: "Jetbrains Mono Nerd Font";
+  font-family: "MonaspiceNe Nerd Font";
   font-size: 12px;
   min-height: 18px;
-  color: #a6accd;
+  color: @foreground;
+  transition: all 0.2s ease;
 }
 
 #custom-archicon {
   font-size: 14px;
   margin-top: 7px;
   margin-left: 7px;
-  background: #1b1e28;
+  background: @background;
   transition: none;
   padding-left: 1px;
   padding-right: 5px;
-  color: #5de4c7;
+  color: @color3;
+  border: 1px solid @color0;
 }
 
 window#waybar {
@@ -23,10 +46,10 @@ window#waybar {
 }
 
 #window {
-  color: #5de4c7;
+  color: @color3;
   margin-top: 7px;
   margin-left: 7px;
-  background: #1b1e28;
+  background: @background;
   transition: none;
   padding: 2px;
   padding-left: 10px;
@@ -37,16 +60,18 @@ window#waybar {
   font-size: 14px;
   margin-top: 7px;
   margin-left: 7px;
-  background: #1b1e28;
+  background: @background;
   transition: none;
   padding-top: 2px;
   padding-bottom: 2px;
-  color: #89ddff;
+  color: @color4;
+  border: 1px solid @color0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #workspaces button {
   background-color: transparent;
-  color: #a6accd;
+  color: @foreground;
   margin-right: -8px;
 }
 
@@ -56,7 +81,7 @@ window#waybar {
 
 button:hover {
   background: inherit;
-  color: #5de4c7;
+  color: @color3;
 }
 
 #pulseaudio,
@@ -64,55 +89,105 @@ button:hover {
 #network,
 #bluetooth,
 #battery {
-  color: #a6accd;
+  color: @foreground;
   margin-top: 7px;
   margin-left: 7px;
-  background: #1b1e28;
+  background: @background;
   transition: none;
   padding: 2px;
   padding-left: 10px;
   padding-right: 10px;
+  border: 1px solid @color0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#pulseaudio:hover,
+#bluetooth:hover,
+#network:hover,
+#battery:hover,
+#custom-media:hover,
+#tray:hover {
+  background: @color0;
+}
+
+#battery {
+  color: @foreground;
+  margin-top: 7px;
+  margin-left: 7px;
+  margin-right: 7px;
+  background: @background;
+  transition: none;
+  padding: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid @color0;
 }
 
 #tray {
   margin-top: 7px;
-  background: #1b1e28;
-  padding: 2px;
-  padding-left: 10px;
-  padding-right: 10px;
-  color: #a6accd;
+  margin-left: 7px;
+  background: @background;
+  padding: 2px 10px;
+  color: @foreground;
+  border: 1px solid @color0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @color3;
 }
 
 #clock {
   font-weight: bold;
   margin-top: 7px;
-  background: #1b1e28;
-  padding: 2px;
+  background: @background;
+  padding-top: 3px;
   padding-left: 10px;
   padding-right: 10px;
-  color: #5de4c7; /* Keeping green for clock */
+  border: 1px solid @color0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #custom-waybar-media.paused {
-  color: #676e95; /* Dimmed color for paused state */
+  color: @color8;
+  border: 1px solid @color0;
 }
 
 #custom-media {
   margin-top: 7px;
   margin-left: 7px;
-  transition: none;
-  padding-left: 8px;
-  background-color: #1b1e28;
-  color: #fffac2; /* Changed to yellow for better visibility */
+  padding-top: 2px;
+  padding-left: 10px;
+  padding-right: 7px;
+  background-color: @background;
+  color: @foreground;
   min-width: 50px;
+  border: 1px solid @color0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#custom-media.Playing {
+  color: @color4;
+  background-color: @color0;
+}
+
+#custom-media.Paused {
+  color: @color8;
 }
 
 #custom-media.custom-spotify {
-  background-color: #1b1e28;
-  color: #add7ff; /* Changed to lighter blue */
+  background-color: @background;
+  color: @color4;
+  border: 1px solid @color0;
 }
 
 #custom-media.custom-vlc {
-  background-color: #1b1e28;
-  color: #89ddff; /* Kept original blue */
+  background-color: @background;
+  color: @color4;
+  border: 1px solid @color0;
 }
